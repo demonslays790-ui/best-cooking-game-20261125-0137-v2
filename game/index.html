@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sizzle &amp; Serve 2 — The Golden Skillet</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #1a0f08; height: 100%; }
+  body {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: "Trebuchet MS", Verdana, sans-serif; color: #e8c9a0;
+  }
+  h1 { margin: 0 0 8px; font-size: 20px; color: #ffd23e; letter-spacing: 1px; }
+  canvas {
+    width: min(1280px, 96vw);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background: #f3dfae;
+    border: 4px solid #f2b25c;
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+    image-rendering: auto;
+  }
+  p { margin: 10px 0 0; font-size: 13px; color: #c9a06a; text-align: center; }
+  kbd {
+    background: #3a2214; border: 1px solid #8a6a45; border-radius: 4px;
+    padding: 1px 6px; font-family: inherit; color: #ffd23e;
+  }
+</style>
+</head>
+<body>
+<h1>🍳 SIZZLE &amp; SERVE 2 — The Golden Skillet</h1>
+<canvas id="game" width="1280" height="720"></canvas>
+<p>
+  <kbd>WASD</kbd> / arrows move &nbsp;·&nbsp; <kbd>E</kbd> use station &nbsp;·&nbsp;
+  <kbd>1</kbd>–<kbd>6</kbd> fridge &nbsp;·&nbsp; click a station to walk there &nbsp;·&nbsp;
+  <kbd>P</kbd> pause &nbsp;·&nbsp; <kbd>M</kbd> mute &nbsp;·&nbsp; <kbd>R</kbd> restart
+  &nbsp;·&nbsp; all art drawn in code, all sounds synthesised — no network, no files beyond this folder.
+</p>
+<script>
+  // ?bare=1 hides the page chrome and sizes the canvas to exactly 1280x720,
+  // so a headless screenshot at that window size captures the game pixel-perfect.
+  if (new URLSearchParams(window.location.search).has('bare')) {
+    document.querySelector('h1').style.display = 'none';
+    document.querySelector('p').style.display = 'none';
+    const c = document.getElementById('game');
+    c.style.width = '1280px';
+    c.style.height = '720px';
+    c.style.border = 'none';
+    c.style.borderRadius = '0';
+    c.style.boxShadow = 'none';
+    document.body.style.justifyContent = 'flex-start';
+  }
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
